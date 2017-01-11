@@ -1,0 +1,5 @@
+{
+    "formula_name": "formula",
+    "kitchen_drivers": "vagrant",
+    "kitchen_default_driver": "vagrant"
+}

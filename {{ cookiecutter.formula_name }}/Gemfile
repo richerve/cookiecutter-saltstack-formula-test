@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gem 'test-kitchen', '~> 1.4'
+{%- for driver in cookiecutter.kitchen_drivers.split(",") %}
+gem 'kitchen-{{ driver }}'
+{%- endfor %}
+gem 'kitchen-salt'
+gem 'kitchen-inspec'

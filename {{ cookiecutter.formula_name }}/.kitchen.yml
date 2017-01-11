@@ -1,0 +1,29 @@
+---
+driver:
+  name: {{ cookiecutter.kitchen_default_driver }}
+
+platforms:
+  - name: ubuntu-16.04
+
+verifier:
+  name: inspec
+
+provisioner:
+  name: salt_solo
+  formula: {{ cookiecutter.formula_name }}
+  require_chef: false
+
+suites:
+  - name: default
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - {{ cookiecutter.formula_name }}
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - {{ cookiecutter.formula_name }}
+      pillars-from-files:
+        {{ cookiecutter.formula_name }}.sls: pillar.example
